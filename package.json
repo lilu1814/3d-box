@@ -1,0 +1,54 @@
+{
+    "name": "3d-box",
+    "version": "0.0.1",
+    "author": "OYsun <web-oysun@qq.com>",
+    "license": "MIT",
+    "description": "炫酷的3d盒子",
+    "main": "dist/3dBox",
+     "files": [
+      "dist"
+    ],
+    "scripts": {
+      "pack": "webpack -p"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/OYsun/VueCircleMenu"
+    },
+    "babel": {
+      "presets": [
+        "es2015"
+      ]
+    },
+    "keywords": [
+      "menu",
+      "circle",
+      "vue",
+      "vuejs",
+      "components",
+      "ui"
+    ],
+    "bugs": {
+      "url": "https://github.com/OYsun/VueCircleMenu/issues"
+    },
+    "devDependencies": {
+      "autoprefixer": "^6.4.0",
+      "babel-cli": "^6.3.15",
+      "babel-core": "^6.3.15",
+      "babel-loader": "^6.2.0",
+      "babel-plugin-transform-runtime": "^6.3.13",
+      "babel-preset-es2015": "^6.3.13",
+      "css-loader": "^0.23.1",
+      "less": "^2.7.2",
+      "less-loader": "^2.2.3",
+      "file-loader": "^0.8.5",
+      "style-loader": "^0.13.0",
+      "vue": "^2.1.0",
+      "vue-hot-reload-api": "^1.2.2",
+      "vue-html-loader": "^1.0.0",
+      "vue-loader": "^10.0.0",
+      "vue-template-compiler": "^2.1.0",
+      "webpack": "^1.13.2",
+      "webpack-dev-server": "^1.8.3"
+    }
+  }
