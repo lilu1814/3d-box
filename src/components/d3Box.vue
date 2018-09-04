@@ -8,19 +8,19 @@
 </div>
 <div class="wrap">
 	<div class="cube">
-		<div class="out-front"><img class="amy-img" src="https://www.2345.com/i/search0320/baidu_web.gif"/></div>
-		<!-- <div class="out-back"><img class="amy-img" src="../images/psbe (1).jpg"/></div>
-		<div class="out-left"><img class="amy-img" src="../images/psbe (2).jpg"/></div>
-		<div class="out-right"><img class="amy-img" src="../images/psbe (3).jpg"/></div> 
-		<div class="out-top"><img class="amy-img" src="../images/psbe (4).jpg"/></div>
-		<div class="out-bottom"><img class="amy-img" src="../images/psbe (5).jpg"/></div>
+		<div class="out-front"><img class="amy-img" :src="images[0]"/></div>
+		<div class="out-back"><img class="amy-img" :src="images[1]"/></div>
+		<div class="out-left"><img class="amy-img" :src="images[2]"/></div>
+		<div class="out-right"><img class="amy-img" :src="images[3]"/></div> 
+		<div class="out-top"><img class="amy-img" :src="images[4]"/></div>
+		<div class="out-bottom"><img class="amy-img" :src="images[5]"/></div>
 
-		<span class="in-front"><img class="inner-amy-img" src="../images/psbe (6).jpg"/></span>
-		<span class="in-back" ><img class="inner-amy-img" src="../images/psbe (7).jpg"/></span>
-		<span class="in-left"><img class="inner-amy-img" src="../images/psbe (8).jpg"/></span>
-		<span class="in-right"><img class="inner-amy-img" src="../images/psbe (9).jpg"/></span>
-		<span class="in-top"><img class="inner-amy-img" src="../images/psbe (10).jpg"/></span>
-		<span class="in-bottom"><img class="inner-amy-img" src="../images/psbe (11).jpg"/></span> -->
+		<span class="in-front"><img class="inner-amy-img" :src="images[6]"/></span>
+		<span class="in-back" ><img class="inner-amy-img" :src="images[7]"/></span>
+		<span class="in-left"><img class="inner-amy-img" :src="images[8]"/></span>
+		<span class="in-right"><img class="inner-amy-img" :src="images[9]"/></span>
+		<span class="in-top"><img class="inner-amy-img" :src="images[10]"/></span>
+		<span class="in-bottom"><img class="inner-amy-img" :src="images[11]"/></span>
 	</div>
 </div>
 
@@ -31,20 +31,23 @@
 <script>
   //import psbe0 from'../images/psbe (0).jpg'
   export default {
-    name: '3dBox',
+    name: 'd3Box',
     data () {
       return {
        
       }
     },
     props: {
-     
+      images:{
+		  type:Array,
+		  default:()=>[]
+	  }
     },
     methods: {
      
     },
     created () {
-      
+      console.log("props",this.images)
     },
     mounted(){
         var stars = document.getElementById('body')

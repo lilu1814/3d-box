@@ -1,4 +1,4 @@
-import Box from './components/3dBox'
+import Box from './components/d3Box'
 // import sliderItemComponent from './components/slider_item'
 // const slider = sliderComponent
 // const slideritem = sliderItemComponent

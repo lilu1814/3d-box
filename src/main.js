@@ -1,5 +1,5 @@
 // 渐变滚动
-//import box from './demo/box_basic'
+import box from './demo/box_basic'
 // // 基础滚动
 // import sliderbasic from './demo/slider_basic'
 // // 不定宽滚动
@@ -23,4 +23,4 @@
 // new Vue(slidervertical)
 // new Vue(slidermultipleSlide)
 // new Vue(slidercoverFlow)
-//new Vue(box)
+new Vue(box)

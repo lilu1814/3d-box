@@ -85,8 +85,8 @@ module.exports = {
     ]
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin(),
-    new BundleAnalyzerPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    //new BundleAnalyzerPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]
 }
