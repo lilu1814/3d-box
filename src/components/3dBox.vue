@@ -1,10 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>amy</title>
-<style type="text/css">
-*{
+<template>
+ <div id="body">
+<div class="starFlick">*</div>
+<div id="stars">
+	<div class="star"></div>
+	<div class="star pink"></div>
+	<div class="star blue"></div>
+</div>
+<div class="wrap">
+	<div class="cube">
+		<div class="out-front"><img class="amy-img" src="https://www.2345.com/i/search0320/baidu_web.gif"/></div>
+		<!-- <div class="out-back"><img class="amy-img" src="../images/psbe (1).jpg"/></div>
+		<div class="out-left"><img class="amy-img" src="../images/psbe (2).jpg"/></div>
+		<div class="out-right"><img class="amy-img" src="../images/psbe (3).jpg"/></div> 
+		<div class="out-top"><img class="amy-img" src="../images/psbe (4).jpg"/></div>
+		<div class="out-bottom"><img class="amy-img" src="../images/psbe (5).jpg"/></div>
+
+		<span class="in-front"><img class="inner-amy-img" src="../images/psbe (6).jpg"/></span>
+		<span class="in-back" ><img class="inner-amy-img" src="../images/psbe (7).jpg"/></span>
+		<span class="in-left"><img class="inner-amy-img" src="../images/psbe (8).jpg"/></span>
+		<span class="in-right"><img class="inner-amy-img" src="../images/psbe (9).jpg"/></span>
+		<span class="in-top"><img class="inner-amy-img" src="../images/psbe (10).jpg"/></span>
+		<span class="in-bottom"><img class="inner-amy-img" src="../images/psbe (11).jpg"/></span> -->
+	</div>
+</div>
+
+	
+</div>
+</template>
+
+<script>
+  //import psbe0 from'../images/psbe (0).jpg'
+  export default {
+    name: '3dBox',
+    data () {
+      return {
+       
+      }
+    },
+    props: {
+     
+    },
+    methods: {
+     
+    },
+    created () {
+      
+    },
+    mounted(){
+        var stars = document.getElementById('body')
+        // js随机生成星
+        for (var j=0;j<100;j++) {
+            var number = randomDistance(10000,500)
+            setTimeout(function () {
+                var newStar = document.createElement("div")
+                newStar.className = "starFlick"
+                newStar.style.fontSize=randomDistance(20, 10)+"px"
+                newStar.style.top = randomDistance(500, -100) + 'px'
+                newStar.style.left = randomDistance(1300, 100) + 'px'
+                newStar.innerHTML="*"
+                stars.appendChild(newStar)
+            }, number)
+        }
+        // 封装随机数方法
+        function randomDistance (max, min) {
+            var distance = Math.floor(Math.random() * (max - min + 1) + min)
+            return distance
+        }
+    }
+  }
+</script>
+
+<style scoped>
+  *{
 	margin:0 auto;
 	padding:0;
 }
@@ -219,13 +286,3 @@ html{
 	transform: translateY(200px) rotateX(-90deg);
 }
 </style>
-</head>
-<body>
-
-
-
-
-<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
-<script src="dist/build.js"></script>
-</body>
-</html>
