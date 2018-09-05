@@ -1,43 +1,49 @@
 <template>
- <div id="body">
-<div class="starFlick">*</div>
-<div id="stars">
-	<div class="star"></div>
-	<div class="star pink"></div>
-	<div class="star blue"></div>
-</div>
-<div class="wrap">
-	<div class="cube">
-		<div class="out-front"><img class="amy-img" :src="images[0]"/></div>
-		<div class="out-back"><img class="amy-img" :src="images[1]"/></div>
-		<div class="out-left"><img class="amy-img" :src="images[2]"/></div>
-		<div class="out-right"><img class="amy-img" :src="images[3]"/></div> 
-		<div class="out-top"><img class="amy-img" :src="images[4]"/></div>
-		<div class="out-bottom"><img class="amy-img" :src="images[5]"/></div>
-
-		<span class="in-front"><img class="inner-amy-img" :src="images[6]"/></span>
-		<span class="in-back" ><img class="inner-amy-img" :src="images[7]"/></span>
-		<span class="in-left"><img class="inner-amy-img" :src="images[8]"/></span>
-		<span class="in-right"><img class="inner-amy-img" :src="images[9]"/></span>
-		<span class="in-top"><img class="inner-amy-img" :src="images[10]"/></span>
-		<span class="in-bottom"><img class="inner-amy-img" :src="images[11]"/></span>
+ <div class="container">
+	<div class="star_flick" v-for="(star,index) in stars" :key="index" :style="star">*</div>
+	<div id="stars">
+		<div class="star"></div>
+		<div class="star pink"></div>
+		<div class="star blue"></div>
 	</div>
-</div>
+	<div class="wrap">
+		<div class="cube">
+			<div class="out-front"><img class="amy-img" :src="images[0]"/></div>
+			<div class="out-back"><img class="amy-img" :src="images[1]"/></div>
+			<div class="out-left"><img class="amy-img" :src="images[2]"/></div>
+			<div class="out-right"><img class="amy-img" :src="images[3]"/></div> 
+			<div class="out-top"><img class="amy-img" :src="images[4]"/></div>
+			<div class="out-bottom"><img class="amy-img" :src="images[5]"/></div>
+
+			<span class="in-front"><img class="inner-amy-img" :src="images[6]"/></span>
+			<span class="in-back" ><img class="inner-amy-img" :src="images[7]"/></span>
+			<span class="in-left"><img class="inner-amy-img" :src="images[8]"/></span>
+			<span class="in-right"><img class="inner-amy-img" :src="images[9]"/></span>
+			<span class="in-top"><img class="inner-amy-img" :src="images[10]"/></span>
+			<span class="in-bottom"><img class="inner-amy-img" :src="images[11]"/></span>
+		</div>
+	</div>
 
 	
 </div>
 </template>
 
 <script>
+ // 封装随机数方法
+	function randomDistance (max, min) {
+		var distance = Math.floor(Math.random() * (max - min + 1) + min)
+		return distance
+	}
   //import psbe0 from'../images/psbe (0).jpg'
   export default {
     name: 'd3Box',
     data () {
       return {
-       
+       stars:[],
       }
     },
     props: {
+	  
       images:{
 		  type:Array,
 		  default:()=>[]
@@ -47,43 +53,41 @@
      
     },
     created () {
-      console.log("props",this.images)
+	  console.log("props",this.images)
+	  for (var j=0;j<100;j++) {
+		  var number = randomDistance(10000,500)
+          setTimeout( ()=> {
+				var number = randomDistance(10000,500)
+				var newStar ={}
+				newStar.fontSize=randomDistance(20, 10)+"px"
+				newStar.top = randomDistance(100, 1) + '%'
+				newStar.left = randomDistance(100, 1) + '%'
+				//newStar.innerHTML="*"
+				this.stars.push(newStar)
+		  },number)
+	  }
     },
     mounted(){
-        var stars = document.getElementById('body')
+        //var stars =this.$el // document.getElementById('body')
         // js随机生成星
-        for (var j=0;j<100;j++) {
-            var number = randomDistance(10000,500)
-            setTimeout(function () {
-                var newStar = document.createElement("div")
-                newStar.className = "starFlick"
-                newStar.style.fontSize=randomDistance(20, 10)+"px"
-                newStar.style.top = randomDistance(500, -100) + 'px'
-                newStar.style.left = randomDistance(1300, 100) + 'px'
-                newStar.innerHTML="*"
-                stars.appendChild(newStar)
-            }, number)
-        }
-        // 封装随机数方法
-        function randomDistance (max, min) {
-            var distance = Math.floor(Math.random() * (max - min + 1) + min)
-            return distance
-        }
+        // for (var j=0;j<100;j++) {
+        //     var number = randomDistance(10000,500)
+        //     setTimeout(function () {
+        //         var newStar = document.createElement("div")
+        //         newStar.className = "star_flick"
+        //         newStar.style.fontSize=randomDistance(20, 10)+"px"
+        //         newStar.style.top = randomDistance(500, -100) + 'px'
+        //         newStar.style.left = randomDistance(1300, 100) + 'px'
+        //         newStar.innerHTML="*"
+        //         stars.appendChild(newStar)
+        //     }, number)
+        // }
+       
     }
   }
 </script>
 
 <style scoped>
-  *{
-	margin:0 auto;
-	padding:0;
-}
-.starFlick {
-	color: #ffffff;
-	position: absolute;
-	animation: starFlick 0.8s ease-out infinite;
-	-webkit-animation: starFlick 0.8s ease-out infinite;
-}
 @keyframes starFlick {
 	from {
 		opacity: 1;
@@ -92,6 +96,17 @@
 		opacity: 0;
 	}
 }
+.container{
+	background-color: #000000;
+	height: 100vh;
+}
+.star_flick {
+	color: #ffffff;
+	position: absolute;
+	animation: starFlick 0.8s ease-out infinite;
+	-webkit-animation: starFlick 0.8s ease-out infinite;
+}
+
 .star {
 	display: block;
 	width: 5px;
