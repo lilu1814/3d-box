@@ -5,7 +5,7 @@
 
 **3d-box** —— 炫酷简单的3d照片盒子。
 
-- 官网：[https://lilu1814.github.io/3d-box/](https://lilu1814.github.io/3d-box.github.io/)
+- 官网：[lilu1814.github.io/3d-box/](https://lilu1814.github.io/3d-box.github.io/)
 - 文档：[https://lilu1814.github.io/3d-box.github.io/]
 - 源码：(https://github.com/lilu1814/3d-box) （欢迎 star）
 
